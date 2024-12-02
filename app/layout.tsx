@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const quicksand = Quicksand({ subsets: ["latin"] });
-export const fredericka = Fredericka_the_Great({
+const fredericka = Fredericka_the_Great({
   subsets: ["latin"],
   weight: "400",
 });
