@@ -14,10 +14,10 @@ function Stories() {
           <Link
             key={story.story}
             href={`/stories/${story.story}`}
-            className="border rounded-lg cursor-pointer hover:shadow-lg hover:border-purple-500 transition-all duration-300 ease-in-out"
+            className="border rounded-lg cursor-pointer hover:shadow-lg hover:border-amber-400/70 transition-all duration-300 ease-in-out"
           >
             <div className="relative">
-              <p className="absolute flex items-center top-0 right-0 bg-white text-purple-500 font-bold p-3 rounded-lg m-2 text-sm">
+              <p className="absolute flex items-center top-0 right-0 bg-white text-amber-400/70 font-bold p-3 rounded-lg m-2 text-sm">
                 <BookOpen className="w-4 h-4 mr-1" />
                 {story.pages.length === 1
                   ? `${story.pages.length} page`
@@ -31,7 +31,7 @@ function Stories() {
                 className="w-full object-contain rounded-t-lg"
               />
             </div>
-            <h2 className="text-lg p-5 first-letter:text-3xl font-light text-center">
+            <h2 className="text-lg p-5 first-letter:text-3xl font-light bg-white text-center">
               {story.story}
             </h2>
           </Link>
