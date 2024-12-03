@@ -1,6 +1,7 @@
 import { Story } from "@/app/types/stories";
 import { Page } from "@/app/types/stories";
 import cleanTitle from "@/lib/cleanTitle";
+import { supabase } from "@/lib/supabase";
 import fs from "fs";
 import path from "path";
 
@@ -47,7 +48,48 @@ export function getAllStories(): Story[] {
   return storiesWithPages;
 }
 
-export const getStory = (story: string): Story | undefined => {
-  const stories = getAllStories();
+export async function getAllStoriesv2(): Promise<Story[]> {
+  try {
+    // Fetch stories with their pages
+    const { data: stories, error: storiesError } = await supabase
+      .from('stories')
+      .select(`
+        id,
+        historical_figure,
+        story_pages (
+          page_number,
+          chapter,
+          illustration_url
+        )
+      `);
+
+    if (storiesError) throw storiesError;
+
+    // Transform Supabase data to match the Story type
+    const formattedStories: Story[] = stories.map(story => ({
+      story: story.historical_figure,
+      pages: story.story_pages.map(page => ({
+        txt: page.chapter, // You'll need to fetch text content separately if not in the initial query
+        png: page.illustration_url,
+        pageNumber: page.page_number,
+        chapter: page.chapter
+      }))
+    }));
+
+    return formattedStories;
+
+  } catch (error) {
+    console.error('Error fetching stories:', error);
+    return [];
+  }
+}
+
+// export const getStory = (story: string): Story | undefined => {
+//   const stories = getAllStories();
+//   return stories.find((s) => s.story === story);
+// };
+
+export const getStory = async (story: string): Promise<Story | undefined> => {
+  const stories = await getAllStoriesv2();
   return stories.find((s) => s.story === story);
 };
