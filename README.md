@@ -1,4 +1,4 @@
-# Story-Story
+# Story-Story: Once upon a time, Time-Time!
 
 ![](images/thumbnail.png)
 
