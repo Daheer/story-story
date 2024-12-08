@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 import { getAllStories, getAllStoriesv2 } from "@/lib/stories";
 import { Story } from "@/app/types/stories";
