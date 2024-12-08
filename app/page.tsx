@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "@/images/logo-transparent.png";
 import { Button } from "@/components/ui/button";
+import { CoolMode } from "@/components/ui/cool-mode";
 import { Quicksand } from "next/font/google";
 import Link from "next/link";
 import StoryWriter from "@/components/StoryWriter";
@@ -20,13 +21,15 @@ export default function Home() {
           </Blockquote>
           <Image src={Logo} height={400} alt="Logo" />
           <div className="flex flex-row space-x-10">
-            <Button
-              asChild
-              variant="gooeyLeft"
-              className="px-20 border bg-white rounded p-10 text-xl"
-            >
-              <Link href="/stories">Explore Story Library</Link>
-            </Button>
+            <CoolMode>
+              <Button
+                asChild
+                variant="gooeyLeft"
+                className="px-20 border bg-white rounded p-10 text-xl"
+              >
+                <Link href="/stories">Explore Story Library</Link>
+              </Button>
+            </CoolMode>
           </div>
         </div>
         {/* <StoryWriter /> */}

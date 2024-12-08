@@ -1,5 +1,7 @@
 import { BookOpen, FilePen } from "lucide-react";
 import Link from "next/link";
+import GradualSpacing from "@/components/ui/gradual-spacing";
+import LetterPullup from "@/components/ui/letter-pullup";
 // import fredericka from "@/app/layout";
 import { Fredericka_the_Great } from "next/font/google";
 
@@ -16,10 +18,15 @@ function Header() {
           Story-Story
         </h1>
         <div className="flex justify-center whitespace-nowrap white space-x-5 text-3xl lg:text-5xl">
-          <h2>Once upon a time, </h2>
+          <GradualSpacing
+              text="Once upon a time,"
+            />
           <div className="relative">
             <div className="absolute bg-amber-400/70 -left-2 -top-1 -bottom-1 -right-2 md:-left-3 md:-top-0 md:-bottom-0 md:-right-3 -rotate-1" />
-            <p className="relative text-white">Time-Time!</p>
+            <GradualSpacing
+              className="relative text-white"
+              text="Time-Time!"
+            />
           </div>
         </div>
       </Link>
