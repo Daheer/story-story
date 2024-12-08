@@ -5,8 +5,6 @@ import { supabase } from "@/lib/supabase";
 import fs from "fs";
 import path from "path";
 
-export const fetchCache = 'force-no-store';
-
 const storiesDirectory = path.join(process.cwd(), "public/stories");
 
 export function getAllStories(): Story[] {
