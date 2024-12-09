@@ -47,7 +47,7 @@ const Story = ({ story }: Props) => {
                       alt={`Page ${i + 1} image`}
                       width={500}
                       height={500}
-                      className="w-80 h-80 xl:w-[500px] xl:h-[500px] rounded-3xl mx-auto float-right p-5 xl:order-last"
+                      className="xl:w-[500px] xl:h-[500px] rounded-3xl mx-auto float-right p-5 xl:order-last"
                     />
                     <p className="font-semibold text-xl first-letter:text-3xl whitespace-pre-wrap">
                       {page.txt}
